@@ -1,7 +1,7 @@
 {
     "last_activity": "2026-01-16T13:57:48+00:00",
-    "inactivity_days": 2,
-    "triggered": false,
-    "triggered_at": null,
-    "last_check": "2026-01-19T12:24:08.949315+00:00"
+    "inactivity_days": 3,
+    "triggered": true,
+    "triggered_at": "2026-01-20T12:24:49.223551+00:00",
+    "last_check": "2026-01-20T12:24:49.221929+00:00"
 }

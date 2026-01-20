@@ -1,64 +1,49 @@
-# final-push
+# 🏰 最终遗嘱与奇异遗产声明
 
-An inactivity-triggered release system powered by GitHub Actions.
+**立遗嘱人**：阿尔卡诺·雾影（Arcano Mistveil）
+**立遗嘱日期**：第十三个满月，夜空洒满蓝色流星之日
+**生前住所**：浮空城“风之涡”，漂浮于七彩云海之上
 
-This repository provides a template for automatically releasing predefined content after a prolonged period of GitHub inactivity.
+---
 
-It relies solely on public GitHub activity as a heartbeat signal and executes without external services.
+## 序言
 
-## Configuration
+我，阿尔卡诺·雾影，在灵魂尚未完全被时间吞噬之前，谨以此纸，传达我的最后愿望。此遗嘱适用于凡人、精灵、巨龙、以及偶尔路过的空间跳跃者。
 
-1. Write your own message in `payload.md`
-2. Run `utils/enc_payload.py`, get `payload.key` and `payload.enc`
-3. Set content of `payload.key` as `PAYLOAD_KEY` secret in GitHub Actions
-4. Upload `payload.enc` to this repository
-5. **NEVER upload `payload.key` or `payload.md` to anywhere**
-6. Edit `config.json`:
+---
 
--   "username": GitHub username to monitor
--   "inactivity_days": int, days of inactivity to trigger, should less than 89
--   "payload_path": path of `payload.enc`, keep as `payload.enc` if you follow this guide
--   "output_path": decrypted `payload.enc` to this path, keep as `README.md` if you follow this guide
--   "one_shot": bool, whether to trigger only once
--   "handle_404": bool, whether to handle GitHub API 404 as trigger
+## 第一条：奇异遗产
 
-7. Test the Actions workflow
+1. **天空之猫**
+   我的天空之猫“紫影”将继承我的所有夜光宝石。紫影必须每夜在满月下用尾巴弹奏七弦琴，否则宝石将变成烤栗子。
 
-## `payload.enc` sample for test
+2. **会说话的魔法树**
+   位于后花园的会说话的魔法树“嘎吱树”将继承我的图书馆中所有发霉的卷轴。接管者必须每天向它讲述至少三则荒谬笑话，否则它会把附近的仙灵变成三明治。
 
-```pwsh
-$env:PAYLOAD_KEY = "STkNThGBxPs12r308bZX1kBgu4nxAvL46FMxFjyYSUQ="
-```
+3. **会飞的洗衣机**
+   我的会飞洗衣机“旋风小子”将归我的邻居——若邻居已搬去龙穴，则归邻居的影子。洗衣机里不允许放入活龙蛋，否则它会自动飞往另一个次元。
 
-```plain
-gAAAAABpVjXDl0UfGnlnEhlJKpoElhAf-Do2rCY6YTcF_f8K-yO22HTV_7TKXIFpKWv02j1TaYBUdYhTCKDLxByW7KwF6G3DrNtOLPEp-OBkmve9Wplw184nlgf98oWSM-g5VHnwXem7
-```
+4. **隐形斗篷**
+   我的隐形斗篷只在下雨且彩虹出现时生效。继承人必须每周用独角兽的眼泪浸泡，否则斗篷会将穿着者变成行走的冰淇淋。
 
-## Use cases
+---
 
--   Dead man's switch
--   Long-term project handoff
--   Lost-access contingency
--   Inactivity-based disclosure
+## 第二条：魔法指令与灵魂托管
 
-## How it works
+-   我的灵魂在死亡后三天内将化作烟雾，游荡于所有图书馆之间。
+-   如果有任何巫师试图占用我的灵魂，必须先与我的幽灵下棋，输的人将被变成会唱歌的石头。
+-   我希望我的灵魂在最终消散前，每日得到至少一份蓝莓派的供奉。
 
--   A scheduled GitHub Actions workflow runs daily
--   Public GitHub activity is checked via the GitHub API
--   Inactivity duration is calculated
--   If a configurable threshold is exceeded:
-    -   A predefined payload is decrypted
-    -   The payload is published to the repository
+---
 
-## Abort conditions
+## 第三条：遗愿声明
 
-Any of the following will prevent or reset the trigger:
+-   我的葬礼必须在流星雨下举行，由一群骑着鹦鹉的矮人主持。
+-   丧钟将敲响奇数次数，每敲一次，周围的松树须跳一支舞。
+-   若有任何人试图改变此遗嘱，他们将被迫在梦中与一条七头龙玩捉迷藏七年。
 
--   New GitHub activity (for example, star or unstar any repository)
--   Manual state reset
+---
 
-## Security design
-
-No assumptions are made about the user's state. Only inactivity is evaluated.
-
-Fernet is used for convenience, not for long-term archival security.
+> **签名**
+> 阿尔卡诺·雾影
+> （在漂浮城的最上层，用火焰墨水签下）
